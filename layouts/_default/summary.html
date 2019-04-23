@@ -39,6 +39,7 @@
       </h1>
       {{ partial "post/meta" . }}
     </div>
+<<<<<<< HEAD
     {{ if and (.Scratch.Get "thumbnailImage") (eq (.Scratch.Get "thumbnailImagePosition") "center")}}
     <a href="{{ .Permalink }}">
       <div class="postShorten-thumbnailimg" style="  padding:3px;  padding-top: 8px;">
@@ -48,6 +49,14 @@
   {{ end }}
     <div class="postShorten-excerpt" itemprop="articleBody" style="    margin-top: 3px;">
       {{ .Summary }}
+=======
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      {{ if .Params.Summary }}
+        {{ .Params.Summary | markdownify }}
+      {{ else }}
+        {{ .Summary }}
+      {{ end }}
+>>>>>>> c7d2fdee5d258d95089e0ee73333f37e6e823e0d
       <p>
         <a href="{{ .Permalink }}" class="postShorten-excerpt_link link">{{ i18n "post.read_more" }}</a>
         {{ with .Params.readingtime }}
