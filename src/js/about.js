@@ -75,6 +75,7 @@
      * @return {void}
      */
     dropAboutCard: function() {
+      
       var self = this;
       var aboutCardHeight = self.$aboutCard.innerHeight();
       // default offset from top
@@ -100,6 +101,7 @@
      * @return {void}
      */
     liftAboutCard: function() {
+      
       var self = this;
       var aboutCardHeight = self.$aboutCard.innerHeight();
       // default offset from top

@@ -39,7 +39,14 @@
       </h1>
       {{ partial "post/meta" . }}
     </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
+    {{ if and (.Scratch.Get "thumbnailImage") (eq (.Scratch.Get "thumbnailImagePosition") "center")}}
+    <a href="{{ .Permalink }}">
+      <div class="postShorten-thumbnailimg" style="  padding:3px;  padding-top: 8px;">
+        <img alt="" itemprop="image" src="{{ .Scratch.Get "thumbnailImage" }}" style="border:1px solid #dadada; border-radius: 5px; width:100%;"/>
+      </div>
+    </a>
+  {{ end }}
+    <div class="postShorten-excerpt" itemprop="articleBody" style="    margin-top: 3px;">
       {{ .Summary }}
       <p>
         <a href="{{ .Permalink }}" class="postShorten-excerpt_link link">{{ i18n "post.read_more" }}</a>
@@ -51,10 +58,10 @@
       </p>
     </div>
   </div>
-  {{ if and (.Scratch.Get "thumbnailImage") (ne (.Scratch.Get "thumbnailImagePosition") "top")}}
+  {{ if and (.Scratch.Get "thumbnailImage") (ne (.Scratch.Get "thumbnailImagePosition") "top") (ne (.Scratch.Get "thumbnailImagePosition") "center")}}
     <a href="{{ .Permalink }}">
       <div class="postShorten-thumbnailimg">
-        <img alt="" itemprop="image" src="{{ .Scratch.Get "thumbnailImage" }}"/>
+        <img alt="" itemprop="image" src="{{ .Scratch.Get "thumbnailImage" }}" style="border:1px solid #dadada; border-radius: 5px; "/>
       </div>
     </a>
   {{ end }}
